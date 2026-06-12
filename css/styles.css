@@ -179,7 +179,7 @@ body {
   );
   color: var(--gold-primary);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+  box-shadow: 0 4px 12px var(--gold-glow);
 }
 
 /* Dropdown (Services) */
@@ -225,7 +225,7 @@ body {
 
 .nav-menu .dropdown-menu .dropdown-item:hover {
   background: linear-gradient(45deg, var(--gold-primary), var(--gold-hover));
-  color: #0b0f1a;
+  color: var(--bg-primary);
 }
 
 /* Open on hover for desktop */
@@ -242,11 +242,11 @@ body {
 .dropdown .dropdown-toggle {
   cursor: pointer;
   text-decoration: none;
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 .dropdown .dropdown-toggle:hover {
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 /* Header Right Section */
@@ -263,7 +263,7 @@ body {
     var(--gold-primary) 0%,
     var(--gold-hover) 100%
   );
-  color: #0b0f1a;
+  color: var(--bg-primary);
   border: 2px solid transparent;
   padding: 12px 24px; /* match nav item height for straight alignment */
   border-radius: 30px;
@@ -278,7 +278,7 @@ body {
   display: inline-block;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.2);
+  box-shadow: 0 4px 15px var(--gold-glow);
 }
 
 .buy-now-btn::before {
@@ -307,10 +307,10 @@ body {
     var(--gold-hover) 0%,
     var(--gold-primary) 100%
   );
-  color: #0b0f1a;
+  color: var(--bg-primary);
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
-  border-color: #f59e0b;
+  box-shadow: 0 8px 25px rgba(212, 168, 83, 0.5);
+  border-color: var(--gold-primary);
 }
 
 /* Order Form Modal Styles */
@@ -327,7 +327,7 @@ body {
 }
 
 .modal-content {
-  background-color: #f8f9e0;
+  background-color: var(--bg-card);
   margin: 5% auto;
   padding: 0;
   border-radius: 12px;
@@ -351,14 +351,14 @@ body {
 }
 
 .modal-header {
-  background: #f8f9e0;
-  color: #000000;
+  background: var(--bg-card);
+  color: var(--text-primary);
   padding: 20px;
   border-radius: 12px 12px 0 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid #e7efc2;
+  border-bottom: 2px solid var(--border-color);
 }
 
 .modal-header h2 {
@@ -368,7 +368,7 @@ body {
 }
 
 .close {
-  color: #000000;
+  color: var(--text-primary);
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
@@ -376,7 +376,7 @@ body {
 }
 
 .close:hover {
-  color: #1a361a;
+  color: var(--gold-primary);
 }
 
 .order-form {
@@ -391,7 +391,7 @@ body {
   display: block;
   margin-bottom: 8px;
   font-weight: 500;
-  color: #333;
+  color: var(--text-primary);
   font-size: 14px;
 }
 
@@ -399,10 +399,11 @@ body {
 .form-group textarea {
   width: 100%;
   padding: 12px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-color);
   border-radius: 6px;
   font-size: 14px;
-  background-color: white;
+  background-color: var(--bg-card);
+  color: var(--text-primary);
   transition:
     border-color 0.3s ease,
     box-shadow 0.3s ease;
@@ -411,8 +412,13 @@ body {
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #1a361a;
-  box-shadow: 0 0 0 2px rgba(26, 54, 26, 0.1);
+  border-color: var(--gold-primary);
+  box-shadow: 0 0 0 2px var(--gold-glow);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--text-muted);
 }
 
 .checkbox-group {
@@ -427,7 +433,7 @@ body {
   align-items: center;
   cursor: pointer;
   font-size: 14px;
-  color: #333;
+  color: var(--text-primary);
 }
 
 .checkbox-label input[type="checkbox"] {
@@ -441,9 +447,9 @@ body {
 }
 
 .submit-btn {
-  background: #f8f9e0;
-  color: #000000;
-  border: 2px solid #1a361a;
+  background: linear-gradient(135deg, var(--gold-primary), var(--gold-hover));
+  color: var(--bg-primary);
+  border: 2px solid transparent;
   padding: 15px 30px;
   border-radius: 6px;
   font-size: 16px;
@@ -451,14 +457,14 @@ body {
   cursor: pointer;
   width: 100%;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 15px var(--gold-glow);
 }
 
 .submit-btn:hover {
-  background: #1e3a8a;
-  color: #ffffff;
-  border-color: #1e3a8a;
+  background: linear-gradient(135deg, var(--gold-hover), var(--gold-primary));
+  color: var(--bg-primary);
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(30, 58, 138, 0.3);
+  box-shadow: 0 6px 25px rgba(212, 168, 83, 0.5);
 }
 
 .submit-btn:active {
@@ -467,7 +473,7 @@ body {
 
 /* Portfolio Section Styles */
 .portfolio-section {
-  background: #f8f9fa;
+  background: var(--bg-primary);
   padding: 80px 0;
 }
 
@@ -481,7 +487,7 @@ body {
   text-align: center;
   font-size: 3rem;
   font-weight: 700;
-  color: #1b2e1b;
+  color: var(--text-primary);
   margin-bottom: 20px;
   font-family: "Times New Roman", serif;
 }
@@ -489,7 +495,7 @@ body {
 .portfolio-subtitle {
   text-align: center;
   font-size: 1.2rem;
-  color: #666;
+  color: var(--text-secondary);
   margin-bottom: 50px;
   max-width: 600px;
   margin-left: auto;
@@ -505,9 +511,9 @@ body {
 }
 
 .filter-btn {
-  background: #f8f9e0;
-  color: #1b2e1b;
-  border: 2px solid #1b2e1b;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 2px solid var(--border-color);
   padding: 12px 24px;
   border-radius: 25px;
   font-size: 14px;
@@ -518,10 +524,11 @@ body {
 
 .filter-btn:hover,
 .filter-btn.active {
-  background: #1b2e1b;
-  color: #ffffff;
+  background: linear-gradient(135deg, var(--gold-primary), var(--gold-hover));
+  color: var(--bg-primary);
+  border-color: var(--gold-primary);
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(27, 46, 27, 0.3);
+  box-shadow: 0 4px 15px var(--gold-glow);
 }
 
 .portfolio-grid {
@@ -566,8 +573,8 @@ body {
   bottom: 0;
   background: linear-gradient(
     135deg,
-    rgba(27, 46, 27, 0.8) 0%,
-    rgba(27, 46, 27, 0.6) 100%
+    rgba(11, 15, 26, 0.85) 0%,
+    rgba(20, 27, 45, 0.75) 100%
   );
   display: flex;
   align-items: center;
@@ -581,7 +588,7 @@ body {
 }
 
 .portfolio-overlay i {
-  color: white;
+  color: var(--gold-primary);
   font-size: 2rem;
 }
 
@@ -618,7 +625,7 @@ body {
   position: absolute;
   top: 20px;
   right: 30px;
-  color: white;
+  color: var(--text-primary);
   font-size: 40px;
   font-weight: bold;
   cursor: pointer;
@@ -627,7 +634,7 @@ body {
 }
 
 .portfolio-modal-close:hover {
-  color: #ffcc00;
+  color: var(--gold-primary);
 }
 
 /* Responsive Portfolio */
@@ -829,7 +836,7 @@ body {
   display: none;
   background: none;
   border: none;
-  color: white;
+  color: var(--text-primary);
   font-size: 24px;
   cursor: pointer;
   padding: 10px;
@@ -840,11 +847,13 @@ body {
 }
 
 .mobile-menu-toggle:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(212, 168, 83, 0.15);
+  color: var(--gold-primary);
 }
 
 .mobile-menu-toggle.active {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(212, 168, 83, 0.2);
+  color: var(--gold-primary);
 }
 
 /* Responsive Design */
@@ -886,7 +895,7 @@ body {
     top: 100%;
     left: 0;
     right: 0;
-    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #1e3a8a 100%);
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-card) 50%, var(--bg-primary) 100%);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     transform: translateY(-100%);
     opacity: 0;
@@ -917,12 +926,14 @@ body {
     padding: 15px 20px;
     font-size: 16px;
     border-radius: 8px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(212, 168, 83, 0.1);
+    color: var(--text-secondary);
     transition: all 0.3s ease;
   }
 
   .nav-menu li a:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(212, 168, 83, 0.2);
+    color: var(--gold-primary);
     transform: none;
   }
 
@@ -932,22 +943,22 @@ body {
     visibility: visible;
     transform: none;
     box-shadow: none;
-    background: rgba(0, 0, 0, 0.2);
+    background: var(--bg-card);
     margin: 10px 0 0 0;
     border-radius: 8px;
     padding: 10px 0;
   }
 
   .dropdown-menu .dropdown-item {
-    color: #ffffff;
+    color: var(--text-primary);
     padding: 12px 30px;
     border-radius: 0;
     background: none;
   }
 
   .dropdown-menu .dropdown-item:hover {
-    background: rgba(245, 158, 11, 0.3);
-    color: #ffffff;
+    background: rgba(212, 168, 83, 0.2);
+    color: var(--gold-primary);
   }
 
   .buy-now-btn {
@@ -1049,13 +1060,13 @@ body {
   height: 12px;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.5);
-  border: 2px solid #ffffff;
+  border: 2px solid var(--text-primary);
   margin: 0 5px;
 }
 
 .carousel-indicators .active {
-  background-color: #ff8c00;
-  border-color: #ff8c00;
+  background-color: var(--gold-primary);
+  border-color: var(--gold-primary);
 }
 
 .carousel-control-prev,
@@ -1127,7 +1138,7 @@ body {
 }
 
 .banner-text {
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 .banner-headline {
@@ -1141,11 +1152,11 @@ body {
 }
 
 .banner-headline .text-cream {
-  color: #f0f0e0; /* Light cream color */
+  color: var(--text-primary);
 }
 
 .banner-headline .text-orange {
-  color: #f5b041; /* Golden orange color */
+  color: var(--gold-primary);
 }
 
 .banner-company {
@@ -1178,7 +1189,7 @@ body {
 
 .cta-button {
   background: linear-gradient(135deg, var(--gold-primary), var(--gold-hover));
-  color: #0b0f1a;
+  color: var(--bg-primary);
   border: none;
   padding: 18px 40px;
   border-radius: 50px;
@@ -1939,7 +1950,7 @@ body {
   text-align: center;
   margin-bottom: 22px;
   padding-bottom: 16px;
-  border-bottom: 1px solid #dfe9db;
+  border-bottom: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2177,18 +2188,17 @@ body {
 /* Gallery Section Styles */
 .pe-gallery {
   padding: 80px 0;
-  background-color: #ffffff;
+  background-color: var(--bg-primary);
 }
 
 .pe-gallery .pe-section-title {
   text-align: center;
   font-size: 2.5rem;
   font-weight: bold;
-  color: #000000;
+  color: var(--text-primary);
   font-family: "Times New Roman", serif;
-  /* Match pale banner style like the Prices heading */
-  background: #f5fbdb;
-  border: 1px solid #e7efc2;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
   padding: 16px 24px;
   border-radius: 6px;
   margin: 20px 0 24px;
@@ -2210,7 +2220,7 @@ body {
     opacity 360ms ease,
     transform 360ms ease,
     filter 520ms ease;
-  background-color: #f2f4f0; /* subtle placeholder tone */
+  background-color: var(--bg-card);
 }
 .progressive-img.is-loaded {
   opacity: 1;
@@ -2323,11 +2333,11 @@ body {
 
 .thumbnail:hover {
   transform: scale(1.05);
-  border-color: #f59e0b;
+  border-color: var(--gold-primary);
 }
 
 .thumbnail.active {
-  border-color: #1b2e1b;
+  border-color: var(--gold-primary);
   transform: scale(1.05);
 }
 
@@ -2582,7 +2592,7 @@ body {
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, #f59e0b, #fbbf24);
+  background: linear-gradient(90deg, var(--gold-primary), var(--gold-hover));
   transition: width 0.6s ease;
 }
 
@@ -2616,7 +2626,7 @@ body {
 .service-item:hover,
 .footer-list li:hover {
   transform: translateX(5px);
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(212, 168, 83, 0.1);
   padding-left: 10px;
 }
 
@@ -2740,7 +2750,7 @@ body {
   margin-top: 20px;
 }
 .newsletter-title {
-  color: #ffffff;
+  color: var(--text-primary);
   font-weight: 700;
   margin: 18px 0 10px;
   font-size: 16px;
@@ -2752,27 +2762,29 @@ body {
 }
 .newsletter-form input {
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #ffffff;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
   padding: 10px 12px;
   border-radius: 6px;
 }
 .newsletter-form input::placeholder {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-muted);
 }
 .newsletter-submit {
-  background: linear-gradient(45deg, #f59e0b, #fbbf24);
-  color: #ffffff;
+  background: linear-gradient(45deg, var(--gold-primary), var(--gold-hover));
+  color: var(--bg-primary);
   border: none;
   padding: 10px 14px;
   border-radius: 24px;
   font-weight: 700;
   cursor: pointer;
   width: fit-content;
+  box-shadow: 0 4px 15px var(--gold-glow);
 }
 .newsletter-submit:hover {
   opacity: 0.95;
   transform: translateY(-1px);
+  box-shadow: 0 6px 25px rgba(212, 168, 83, 0.5);
 }
 
 /* Footer Responsive */
