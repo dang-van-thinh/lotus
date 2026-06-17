@@ -1,9 +1,16 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>Day to Dusk Services - Lotus Foto</title>
+    <meta name="description" content="Transform daytime real estate photos into stunning dusk shots. Lotus Foto's Day to Dusk service replaces skies with beautiful twilight settings.">
+    <meta property="og:title" content="Day to Dusk Photo Editing - Lotus Foto">
+    <meta property="og:description" content="Turn daytime property photos into stunning twilight images with professional sky replacement.">
+    <meta property="og:image" content="images/DAY TO DUSK/sau.jpg">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/png" href="images/logo/logo.png">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -11,11 +18,11 @@
     <style>
         /* Day to Dusk specific styles with website color scheme */
         .dtd-hero {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            background: linear-gradient(135deg, #0b0f1a 0%, #141b2d 55%, #0b0f1a 100%);
             padding: 80px 0;
             text-align: center;
         }
-        
+
         .dtd-title {
             font-size: 3.5rem;
             font-weight: 700;
@@ -23,7 +30,7 @@
             margin-bottom: 30px;
             font-family: 'Times New Roman', serif;
         }
-        
+
         .dtd-subtitle {
             font-size: 1.3rem;
             color: #ffffff;
@@ -33,121 +40,130 @@
             margin-right: auto;
             line-height: 1.6;
         }
-        
+
         .dtd-cta {
             margin-top: 40px;
         }
-        
+
         .dtd-features {
-            background: #ffffff;
+            background: linear-gradient(180deg, #0b0f1a 0%, #121826 45%, #0b0f1a 100%);
             padding: 80px 0;
+            color: #ffffff;
         }
-        
+
         .dtd-features-banner {
-            background: #f8f9e0;
-            color: #000000;
+            background: rgba(212, 168, 83, 0.12);
+            color: #ffffff;
             text-align: center;
             padding: 20px 0;
             margin-bottom: 40px;
             border-radius: 8px;
+            border: 1px solid rgba(212, 168, 83, 0.25);
         }
-        
+
         .dtd-features-banner h2 {
             font-size: 2.5rem;
             font-weight: 700;
             margin: 0;
             font-family: 'Times New Roman', serif;
         }
-        
+
         .dtd-features-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 30px;
             margin-top: 40px;
         }
-        
+
         .dtd-feature-card {
-            background: #F8F9E0;
+            background: linear-gradient(180deg, #141b2d 0%, #1a2340 100%);
+            border: 1px solid rgba(212, 168, 83, 0.18);
             padding: 30px;
             border-radius: 12px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.22);
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
-        
+
         .dtd-feature-card:hover {
             transform: translateY(-5px);
+            border-color: rgba(212, 168, 83, 0.35);
         }
-        
+
         .dtd-feature-icon {
             font-size: 3rem;
-            color: #000000;
+            color: #d4a853;
             margin-bottom: 20px;
         }
-        
+
         .dtd-feature-title {
             font-size: 1.5rem;
             font-weight: 700;
-            color: #000000;
+            color: #ffffff;
             margin-bottom: 15px;
         }
-        
+
         .dtd-feature-desc {
-            color: #000000;
+            color: #cbd5e1;
             line-height: 1.6;
         }
-        
+
         .dtd-showcase {
-            background: #f8f9fa;
+            background: linear-gradient(180deg, #0b0f1a 0%, #121826 45%, #0b0f1a 100%);
             padding: 80px 0;
         }
-        
+
         .dtd-showcase-title {
-            background: linear-gradient(135deg, #1A361A 0%, #0f3a1a 100%);
+            background: linear-gradient(135deg, rgba(212, 168, 83, 0.14), rgba(15, 23, 42, 0.96));
             color: #ffffff;
             text-align: center;
             padding: 20px 0;
             margin-bottom: 40px;
             border-radius: 8px;
+            border: 1px solid rgba(212, 168, 83, 0.28);
             font-size: 2.2rem;
             font-weight: 700;
             font-family: 'Times New Roman', serif;
         }
-        
+
         .dtd-comparison-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
             margin-top: 40px;
         }
-        
+
         .dtd-comparison-item {
-            background: #ffffff;
+            background: #141b2d;
+            border: 1px solid rgba(212, 168, 83, 0.18);
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
-        
+
         .dtd-comparison-item:hover {
             transform: translateY(-5px);
+            border-color: rgba(212, 168, 83, 0.35);
         }
-        
+
         .dtd-comparison-title {
-            background: #F8F9E0;
-            color: #000000;
+            background: rgba(212, 168, 83, 0.08);
+            color: #d4a853;
             padding: 15px;
             text-align: center;
             font-weight: 600;
             font-size: 1.1rem;
+            border-bottom: 1px solid rgba(212, 168, 83, 0.18);
         }
-        
+
         .dtd-pricing {
-            background: #f8f9fa;
+            background: linear-gradient(180deg, #0b0f1a 0%, #121826 45%, #0b0f1a 100%);
             padding: 80px 0;
             text-align: center;
+            color: #ffffff;
         }
-        
+
         .pricing-grid {
             display: flex;
             justify-content: center;
@@ -155,70 +171,71 @@
             max-width: 1200px;
             margin: 0 auto;
         }
-        
+
         .pricing-card {
             max-width: 500px;
             width: 100%;
             margin: 0 auto;
         }
-        
-        
+
+
         .dtd-pricing-banner {
-            background: #f8f9e0;
-            color: #000000;
+            background: rgba(212, 168, 83, 0.12);
+            color: #ffffff;
             text-align: center;
             padding: 20px 0;
             margin-bottom: 40px;
             border-radius: 8px;
+            border: 1px solid rgba(212, 168, 83, 0.25);
         }
-        
+
         .dtd-pricing-banner h2 {
             font-size: 2.5rem;
             font-weight: 700;
             margin: 0;
             font-family: 'Times New Roman', serif;
-            color: #000000;
+            color: #ffffff;
         }
-        
+
         .dtd-pricing-card {
-            background: #f8f9e0;
+            background: linear-gradient(180deg, #141b2d 0%, #1a2340 100%);
             border-radius: 12px;
             padding: 40px;
             text-align: center;
             max-width: 600px;
             margin: 0 auto;
-            border: 2px solid #1e3a8a;
-            box-shadow: 0 8px 25px rgba(30, 58, 138, 0.2);
+            border: 1px solid rgba(212, 168, 83, 0.18);
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.22);
         }
-        
+
         .dtd-pricing-title {
             font-size: 2rem;
             font-weight: 700;
-            color: #000000;
+            color: #ffffff;
             margin-bottom: 20px;
             font-family: 'Times New Roman', serif;
         }
-        
+
         .dtd-price {
             font-size: 3rem;
             font-weight: 700;
-            color: #000000;
+            color: #d4a853;
             margin: 20px 0 10px;
         }
-        
+
         .dtd-price-unit {
-            color: #000000;
+            color: #cbd5e1;
             font-size: 1.1rem;
             margin-bottom: 30px;
         }
-        
+
         .dtd-pricing-images {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 15px;
             margin: 30px 0;
         }
-        
+
         .dtd-pricing-img {
             width: 100%;
             height: 120px;
@@ -226,31 +243,31 @@
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
-        
+
         .dtd-pricing-features {
             text-align: left;
             margin: 30px 0;
         }
-        
+
         .dtd-feature-item {
-            color: #000000;
+            color: #e5eefb;
             font-size: 1rem;
             margin-bottom: 10px;
             padding-left: 20px;
             position: relative;
         }
-        
+
         .dtd-feature-item::before {
             content: "•";
-            color: #000000;
+            color: #d4a853;
             font-weight: bold;
             position: absolute;
             left: 0;
         }
-        
+
         .dtd-order-btn {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-            color: #ffffff;
+            background: linear-gradient(135deg, #d4a853 0%, #e8c57a 100%);
+            color: #0b0f1a;
             border: none;
             padding: 15px 40px;
             border-radius: 25px;
@@ -261,45 +278,45 @@
             text-decoration: none;
             display: inline-block;
         }
-        
+
         .dtd-order-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(30, 58, 138, 0.3);
-            color: #ffffff;
+            box-shadow: 0 8px 20px rgba(212, 168, 83, 0.25);
+            color: #0b0f1a;
         }
-        
+
         /* Ensure carousel is visible */
         .pe-multi-slider {
             display: flex !important;
         }
-        
+
         .pe-multi-slider.is-hidden {
             display: none !important;
         }
-        
+
         /* Hide skeleton loader initially */
         .pe-skeleton {
             display: none !important;
         }
-        
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .dtd-title {
                 font-size: 2.5rem;
             }
-            
+
             .dtd-features-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .dtd-comparison-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .dtd-pricing-images {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
+
             .dtd-pricing-card {
                 max-width: 100%;
                 margin: 0 20px;
@@ -307,6 +324,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Header (copied structure from index) -->
     <header class="header">
@@ -319,13 +337,14 @@
                 <button class="mobile-menu-toggle" id="mobileMenuToggle">
                     <i class="fas fa-bars"></i>
                 </button>
-                
+
                 <!-- Navigation Menu -->
                 <nav class="navigation" id="navigation">
                     <ul class="nav-menu">
                         <li><a href="index.html#home">Home</a></li>
                         <li class="dropdown">
-                            <a href="services.html" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+                            <a href="services.html" class="dropdown-toggle" data-bs-toggle="dropdown"
+                                aria-expanded="false">Services</a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="photo-editing.html">Photo Editing</a></li>
                                 <li><a class="dropdown-item" href="day-to-dusk.html">Day to Dusk</a></li>
@@ -335,10 +354,10 @@
                             </ul>
                         </li>
                         <li><a href="portfolio.html">Portfolio</a></li>
-                        <li><a href="#footer">Contact us</a></li>
+                        <li><a href="contact.html">Contact us</a></li>
                     </ul>
                 </nav>
-                
+
                 <!-- Buy Now Button -->
                 <a href="order.html" class="buy-now-btn">Order Now</a>
             </div>
@@ -370,9 +389,14 @@
         <section class="pe-hero">
             <div class="pe-container">
                 <h1 class="pe-title">Day to Dusk Services</h1>
-                <p class="pe-lead">With our day to dusk service for real estate, we can transform any property from a mundane daytime look to a stunningly beautiful evening ambiance. Imagine your property glowing under the moonlight, with just the right balance of shadow and light to create a captivating and magical atmosphere.</p>
-                <p class="pe-text">We specialize in <strong>professional day to dusk transformations</strong> that enhance your property's appeal and create stunning visual impact for real estate marketing.</p>
-                <p class="pe-text"><strong>We are committed to high and consistency quality</strong> before sending photos back to the customer.</p>
+                <p class="pe-lead">With our day to dusk service for real estate, we can transform any property from a
+                    mundane daytime look to a stunningly beautiful evening ambiance. Imagine your property glowing under
+                    the moonlight, with just the right balance of shadow and light to create a captivating and magical
+                    atmosphere.</p>
+                <p class="pe-text">We specialize in <strong>professional day to dusk transformations</strong> that
+                    enhance your property's appeal and create stunning visual impact for real estate marketing.</p>
+                <p class="pe-text"><strong>We are committed to high and consistency quality</strong> before sending
+                    photos back to the customer.</p>
                 <div class="pe-cta"><a href="index.html#contact" class="cta-button">Free Trial Test</a></div>
             </div>
         </section>
@@ -387,22 +411,27 @@
                     <div class="dtd-feature-card">
                         <div class="dtd-feature-icon">⏰</div>
                         <div class="dtd-feature-title">Speedy Turnaround</div>
-                        <div class="dtd-feature-desc">Spend more time shooting and marketing your business - leave the day-to-dusk conversion to us and we'll deliver your images back within 12 hours.</div>
+                        <div class="dtd-feature-desc">Spend more time shooting and marketing your business - leave the
+                            day-to-dusk conversion to us and we'll deliver your images back within 12 hours.</div>
                     </div>
                     <div class="dtd-feature-card">
                         <div class="dtd-feature-icon">📈</div>
                         <div class="dtd-feature-title">Scale</div>
-                        <div class="dtd-feature-desc">Never decline a work request due to insufficient in-house editing capacity. Serve more realtors and let Lotusfoto take care of your post-processing with consistently high quality.</div>
+                        <div class="dtd-feature-desc">Never decline a work request due to insufficient in-house editing
+                            capacity. Serve more realtors and let Lotusfoto take care of your post-processing with
+                            consistently high quality.</div>
                     </div>
                     <div class="dtd-feature-card">
                         <div class="dtd-feature-icon">💡</div>
                         <div class="dtd-feature-title">Unlimited Corrections</div>
-                        <div class="dtd-feature-desc">We don't just sell products, we also care about the customer's experience.</div>
+                        <div class="dtd-feature-desc">We don't just sell products, we also care about the customer's
+                            experience.</div>
                     </div>
                     <div class="dtd-feature-card">
                         <div class="dtd-feature-icon">🎁</div>
                         <div class="dtd-feature-title">Easy Bundling</div>
-                        <div class="dtd-feature-desc">Optimize your virtual dusk images with a virtual time-lapse or social media slideshow for an appealing marketing material package.</div>
+                        <div class="dtd-feature-desc">Optimize your virtual dusk images with a virtual time-lapse or
+                            social media slideshow for an appealing marketing material package.</div>
                     </div>
                 </div>
             </div>
@@ -415,26 +444,41 @@
                 <div class="pe-grid">
                     <div class="before-after-container">
                         <div class="before-after-image">
-                            <img src="images/Sample Lotus Foto/Day To Dusk/1.jpg" alt="Before" class="before-image" loading="eager" decoding="async" fetchpriority="high">
-                            <img src="images/Sample Lotus Foto/Day To Dusk/11.jpg" alt="After" class="after-image" loading="eager" decoding="async" fetchpriority="high">
+                            <img src="images/Sample Lotus Foto/Day To Dusk/1.jpg" alt="Before" class="before-image"
+                                loading="eager" decoding="async" fetchpriority="high">
+                            <img src="images/Sample Lotus Foto/Day To Dusk/11.jpg" alt="After" class="after-image"
+                                loading="eager" decoding="async" fetchpriority="high">
                             <div class="slider-line"></div>
-                            <div class="slider-handle"><div class="slider-arrow left">‹</div><div class="slider-arrow right">›</div></div>
+                            <div class="slider-handle">
+                                <div class="slider-arrow left">‹</div>
+                                <div class="slider-arrow right">›</div>
+                            </div>
                         </div>
                     </div>
                     <div class="before-after-container">
                         <div class="before-after-image">
-                            <img src="images/Sample Lotus Foto/Day To Dusk/2.JPG" alt="Before" class="before-image" loading="eager" decoding="async">
-                            <img src="images/Sample Lotus Foto/Day To Dusk/22.jpg" alt="After" class="after-image" loading="eager" decoding="async">
+                            <img src="images/Sample Lotus Foto/Day To Dusk/2.JPG" alt="Before" class="before-image"
+                                loading="eager" decoding="async">
+                            <img src="images/Sample Lotus Foto/Day To Dusk/22.jpg" alt="After" class="after-image"
+                                loading="eager" decoding="async">
                             <div class="slider-line"></div>
-                            <div class="slider-handle"><div class="slider-arrow left">‹</div><div class="slider-arrow right">›</div></div>
+                            <div class="slider-handle">
+                                <div class="slider-arrow left">‹</div>
+                                <div class="slider-arrow right">›</div>
+                            </div>
                         </div>
                     </div>
                     <div class="before-after-container">
                         <div class="before-after-image">
-                            <img src="images/Sample Lotus Foto/Day To Dusk/3.JPG" alt="Before" class="before-image" loading="eager" decoding="async">
-                            <img src="images/Sample Lotus Foto/Day To Dusk/33.jpg" alt="After" class="after-image" loading="eager" decoding="async">
+                            <img src="images/Sample Lotus Foto/Day To Dusk/3.JPG" alt="Before" class="before-image"
+                                loading="eager" decoding="async">
+                            <img src="images/Sample Lotus Foto/Day To Dusk/33.jpg" alt="After" class="after-image"
+                                loading="eager" decoding="async">
                             <div class="slider-line"></div>
-                            <div class="slider-handle"><div class="slider-arrow left">‹</div><div class="slider-arrow right">›</div></div>
+                            <div class="slider-handle">
+                                <div class="slider-arrow left">‹</div>
+                                <div class="slider-arrow right">›</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -447,25 +491,31 @@
                 <h2 class="pe-section-title alt">How Does It Work</h2>
                 <div class="pe-steps">
                     <div class="pe-step">
-                        <div class="pe-step-icon"><img class="pe-step-img" src="images/how does it work/1.png" alt="Upload real estate photos" loading="lazy" decoding="async"></div>
+                        <div class="pe-step-icon"><img class="pe-step-img" src="images/how does it work/1.png"
+                                alt="Upload real estate photos" loading="lazy" decoding="async"></div>
                         <div class="pe-step-title">Upload real estate photos</div>
                     </div>
                     <div class="pe-step">
-                        <div class="pe-step-icon"><img class="pe-step-img" src="images/how does it work/2.png" alt="Write recommendations" loading="lazy" decoding="async"></div>
+                        <div class="pe-step-icon"><img class="pe-step-img" src="images/how does it work/2.png"
+                                alt="Write recommendations" loading="lazy" decoding="async"></div>
                         <div class="pe-step-title">Write recommendations</div>
                     </div>
                     <div class="pe-step">
-                        <div class="pe-step-icon"><img class="pe-step-img" src="images/how does it work/3.webp" alt="Submit for revision if necessary" loading="lazy" decoding="async"></div>
+                        <div class="pe-step-icon"><img class="pe-step-img" src="images/how does it work/3.webp"
+                                alt="Submit for revision if necessary" loading="lazy" decoding="async"></div>
                         <div class="pe-step-title">Submit for revision if necessary</div>
                     </div>
                     <div class="pe-step">
-                        <div class="pe-step-icon"><img class="pe-step-img" src="images/how does it work/4.png" alt="Get your photos back" loading="lazy" decoding="async"></div>
+                        <div class="pe-step-icon"><img class="pe-step-img" src="images/how does it work/4.png"
+                                alt="Get your photos back" loading="lazy" decoding="async"></div>
                         <div class="pe-step-title">Get your photos back</div>
                     </div>
                 </div>
                 <div class="pe-how-text">
-                    <p>Having received thousands of requests from realtors and photographers, we launched our own new real estate photo editing services. Either expert or beginning photographers can use it.</p>
-                    <p>We will take care of your property photos in a fast 12–15 hours turnaround time and efficient way. Our services are a straight way to professional property photography.</p>
+                    <p>Having received thousands of requests from realtors and photographers, we launched our own new
+                        real estate photo editing services. Either expert or beginning photographers can use it.</p>
+                    <p>We will take care of your property photos in a fast 12–15 hours turnaround time and efficient
+                        way. Our services are a straight way to professional property photography.</p>
                 </div>
             </div>
         </section>
@@ -481,10 +531,14 @@
                         <div class="dtd-price">$ 5.00</div>
                         <div class="dtd-price-unit">per photo</div>
                         <div class="dtd-pricing-images">
-                            <img src="images/DAY TO DUSK/anh trk.jpg" alt="Day to Dusk sample 1" class="dtd-pricing-img" loading="lazy" decoding="async">
-                            <img src="images/DAY TO DUSK/sau.jpg" alt="Day to Dusk sample 2" class="dtd-pricing-img" loading="lazy" decoding="async">
-                            <img src="images/DAY TO DUSK/truoc.jpg" alt="Day to Dusk sample 3" class="dtd-pricing-img" loading="lazy" decoding="async">
-                            <img src="images/DAY TO DUSK/sau lam.jpg" alt="Day to Dusk sample 4" class="dtd-pricing-img" loading="lazy" decoding="async">
+                            <img src="images/DAY TO DUSK/anh trk.jpg" alt="Day to Dusk sample 1" class="dtd-pricing-img"
+                                loading="lazy" decoding="async">
+                            <img src="images/DAY TO DUSK/sau.jpg" alt="Day to Dusk sample 2" class="dtd-pricing-img"
+                                loading="lazy" decoding="async">
+                            <img src="images/DAY TO DUSK/truoc.jpg" alt="Day to Dusk sample 3" class="dtd-pricing-img"
+                                loading="lazy" decoding="async">
+                            <img src="images/DAY TO DUSK/sau lam.jpg" alt="Day to Dusk sample 4" class="dtd-pricing-img"
+                                loading="lazy" decoding="async">
                         </div>
                         <div class="dtd-pricing-features">
                             <div class="dtd-feature-item">Professional day to dusk conversion</div>
@@ -492,7 +546,7 @@
                             <div class="dtd-feature-item">Turnaround: 12–15 hours</div>
                         </div>
                         <div class="dtd-cta">
-                            <a href="order.html" class="dtd-order-btn">Create Order</a>
+                            <a href="#footer" class="cta-button">Contact Us</a>
                         </div>
                     </div>
                 </div>
@@ -537,8 +591,12 @@
                     <h3 class="footer-title">SOCIAL</h3>
                     <div class="social-media-section">
                         <div class="social-icons">
-                            <a href="https://www.facebook.com/profile.php?id=61579599152434&locale=vi_VN" target="_blank" aria-label="Facebook" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
-                            <a href="https://www.instagram.com/lotus_foto_editing/" target="_blank" aria-label="Instagram" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/profile.php?id=61579599152434&locale=vi_VN"
+                                target="_blank" aria-label="Facebook" class="social-icon facebook"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/lotus_foto_editing/" target="_blank"
+                                aria-label="Instagram" class="social-icon instagram"><i
+                                    class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
@@ -556,37 +614,49 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.5);
+            background-color: rgba(0, 0, 0, 0.5);
             animation: fadeIn 0.3s ease;
         }
 
         .modal-content {
-            background-color: #f8f9e0;
+            background-color: #141b2d;
             margin: 5% auto;
             padding: 0;
-            border: none;
+            border: 1px solid rgba(212, 168, 83, 0.25);
             width: 90%;
             max-width: 600px;
             border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
             animation: modalSlideIn 0.3s ease;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         @keyframes modalSlideIn {
-            from { transform: translateY(-50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         .modal-header {
-            background-color: #f8f9e0;
-            color: #000000;
+            background-color: #1a2340;
+            color: #ffffff;
             padding: 20px;
-            border-bottom: 2px solid #e7efc2;
+            border-bottom: 1px solid rgba(212, 168, 83, 0.25);
             border-radius: 10px 10px 0 0;
             display: flex;
             justify-content: space-between;
@@ -595,12 +665,12 @@
 
         .modal-header h2 {
             margin: 0;
-            color: #000000;
+            color: #ffffff;
             font-size: 1.5rem;
         }
 
         .close {
-            color: #000000;
+            color: #94a3b8;
             font-size: 28px;
             font-weight: bold;
             cursor: pointer;
@@ -608,7 +678,7 @@
         }
 
         .close:hover {
-            color: #1A361A;
+            color: #d4a853;
         }
 
         .order-form {
@@ -623,14 +693,16 @@
             display: block;
             margin-bottom: 5px;
             font-weight: 600;
-            color: #000000;
+            color: #d4a853;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
             padding: 12px;
-            border: 2px solid #e7efc2;
+            background: #0b0f1a;
+            color: #ffffff;
+            border: 1px solid #1e293b;
             border-radius: 5px;
             font-size: 16px;
             transition: border-color 0.3s ease;
@@ -640,7 +712,7 @@
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #000000;
+            border-color: #d4a853;
         }
 
         .checkbox-group {
@@ -662,9 +734,9 @@
         }
 
         .submit-btn {
-            background-color: #f8f9e0;
-            color: #000000;
-            border: 2px solid #1A361A;
+            background: linear-gradient(135deg, #d4a853, #e8c57a);
+            color: #0b0f1a;
+            border: none;
             padding: 15px 30px;
             font-size: 1.1rem;
             font-weight: 600;
@@ -675,98 +747,12 @@
         }
 
         .submit-btn:hover {
-            background-color: #000000;
-            color: #ffffff;
-            border-color: #000000;
-            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(212, 168, 83, 0.3);
         }
     </style>
 
-    <!-- Order Form Modal -->
-    <div id="orderModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Order Form</h2>
-                <span class="close">&times;</span>
-            </div>
-            <form class="order-form" id="orderForm">
-                <div class="form-group">
-                    <label for="name">Your name*</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Your email*</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="orderName">Order name</label>
-                    <input type="text" id="orderName" name="orderName">
-                </div>
-                
-                <div class="form-group">
-                    <label for="fileCount">Number of files</label>
-                    <input type="number" id="fileCount" name="fileCount" min="1">
-                </div>
-                
-                <div class="form-group">
-                    <label>Services</label>
-                    <div class="checkbox-group">
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="services" value="Photo Editing">
-                            <span>Photo Editing</span>
-                        </label>
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="services" value="Day to Dusk">
-                            <span>Day to Dusk</span>
-                        </label>
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="services" value="Item Removal">
-                            <span>Item Removal</span>
-                        </label>
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="services" value="Floor Plan">
-                            <span>Floor Plan</span>
-                        </label>
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="services" value="Virtual Staging & Renovation">
-                            <span>Virtual Staging & Renovation</span>
-                        </label>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="message">Message*</label>
-                    <textarea id="message" name="message" rows="4" required placeholder="Please provide your photo links and any specific requirements..."></textarea>
-                </div>
-                
-                <button type="submit" class="submit-btn">Submit Order</button>
-            </form>
-        </div>
-    </div>
-
-    <script>
-        // Order buttons functionality
-        function initOrderButtons() {
-            const orderButtons = document.querySelectorAll('.cta-button, .create-order-btn, .pricing-btn');
-            
-            orderButtons.forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    console.log('Order button clicked');
-                    
-                    // Redirect to order page
-                    window.location.href = 'order.html';
-                });
-            });
-        }
-
-        // Initialize order buttons when DOM is loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            initOrderButtons();
-        });
-    </script>
     <script src="js/main.js"></script>
 </body>
+
 </html>
