@@ -230,7 +230,10 @@ body {
   opacity: 0;
   visibility: hidden;
   transform: translateY(8px);
-  transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
+  transition:
+    opacity 0.22s ease,
+    transform 0.22s ease,
+    visibility 0.22s;
   z-index: 1010;
   pointer-events: none;
 }
@@ -267,8 +270,11 @@ body {
   white-space: nowrap;
   border-left: 3px solid transparent;
   background: transparent;
-  transition: background 0.18s ease, color 0.18s ease,
-              border-color 0.18s ease, padding-left 0.18s ease;
+  transition:
+    background 0.18s ease,
+    color 0.18s ease,
+    border-color 0.18s ease,
+    padding-left 0.18s ease;
 }
 
 /* Subtle divider between items */
@@ -1527,7 +1533,8 @@ body {
   font-size: 3rem;
   font-weight: 700;
   text-align: center;
-  margin: 60px 0 20px;
+  /* margin: 60px 0 20px; */
+  padding: 60px 0 20px;
   font-family: "Times New Roman", serif;
   color: var(--text-primary);
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
@@ -1549,6 +1556,19 @@ body {
   justify-content: center;
   margin: 24px 0 40px;
 }
+
+/* Hero text section — used on photo-editing, day-to-dusk, index */
+.pe-hero {
+  background: var(--bg-primary);
+  padding: 0 0 60px;
+}
+
+/* Before/after showcase section */
+.pe-showcase {
+  background: linear-gradient(180deg, #0b0f1a 0%, #121826 45%, #0b0f1a 100%);
+  padding: 80px 0;
+}
+
 .pe-section-title {
   font-size: 2.2rem;
   text-align: center;
