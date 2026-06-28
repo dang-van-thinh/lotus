@@ -276,7 +276,11 @@ function initServicesDropdown() {
     document.querySelectorAll('.dropdown-toggle[href="services.html"]').forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
-            window.location.href = 'services.html';
+            // Desktop: click navigates to services.html (hover already handles the dropdown)
+            // Mobile: let Bootstrap toggle the dropdown (.show class), no navigation
+            if (window.innerWidth > 768) {
+                window.location.href = 'services.html';
+            }
         });
     });
 }
@@ -291,6 +295,9 @@ function initMobileMenu() {
         nav.classList.remove('active');
         toggle.classList.remove('active');
         toggle.querySelector('i').className = 'fas fa-bars';
+        // Also collapse any open dropdown
+        nav.querySelectorAll('.dropdown.show').forEach(d => d.classList.remove('show'));
+        nav.querySelectorAll('.dropdown-menu.show').forEach(m => m.classList.remove('show'));
     }
 
     toggle.addEventListener('click', function() {
@@ -299,7 +306,10 @@ function initMobileMenu() {
         toggle.querySelector('i').className = isOpen ? 'fas fa-times' : 'fas fa-bars';
     });
 
-    nav.querySelectorAll('.nav-menu a').forEach(link => link.addEventListener('click', closeMenu));
+    // Close mobile nav on non-toggle link clicks; dropdown-toggle handled separately
+    nav.querySelectorAll('.nav-menu a:not(.dropdown-toggle)').forEach(link =>
+        link.addEventListener('click', closeMenu)
+    );
 
     document.addEventListener('click', function(e) {
         if (!nav.contains(e.target) && !toggle.contains(e.target)) closeMenu();

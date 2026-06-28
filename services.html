@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 
 <head>
@@ -16,364 +16,206 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <style>
-        /* Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* ── Services page — carousel (not Bootstrap) ── */
+        html { scroll-behavior: smooth; }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(180deg, #0b0f1a 0%, #121826 50%, #0b0f1a 100%);
-            color: #ffffff;
-            margin: 0;
-            padding: 0;
-            scroll-behavior: smooth;
-        }
-
-        /* Performance optimizations */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        * {
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-            -webkit-perspective: 1000;
-            perspective: 1000;
-        }
-
-        /* Lazy loading styles */
-        img.lazy {
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        img.lazy.loaded {
-            opacity: 1;
-        }
-
-        /* Reduce motion for better performance */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-
-        /* Main Content Styles */
-        .main-content {
-            min-height: calc(100vh - 200px);
-            background: linear-gradient(180deg, #0b0f1a 0%, #121826 50%, #0b0f1a 100%);
-        }
-
-        /* Services Page Styles */
-
-        /* Carousel Styles */
-        .hero-section {
-            background: linear-gradient(135deg, rgba(11, 15, 26, 0.98), rgba(20, 27, 45, 0.96));
-            padding: 24px 0 0;
+        .svc-hero {
             position: relative;
-            min-height: 340px;
+            background: linear-gradient(135deg, rgba(7,11,23,0.98), rgba(17,23,40,0.96));
+            padding: 40px 0 0;
             overflow: hidden;
         }
-
-        .carousel-container {
-            position: relative;
-            width: 100%;
-            max-width: 1100px;
-            height: 360px;
-            margin: 0 auto;
-            overflow: hidden;
-            border-radius: 18px;
-            box-shadow: 0 18px 35px rgba(0, 0, 0, 0.35);
-            border: 1px solid rgba(212, 168, 83, 0.18);
-        }
-
-        .carousel-container::before {
+        .svc-hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, rgba(0, 0, 0, 0.1) 0%, transparent 50%, rgba(0, 0, 0, 0.1) 100%);
-            z-index: 1;
+            inset: 0;
+            background: radial-gradient(ellipse 80% 60% at 50% 100%, rgba(212,168,83,0.06) 0%, transparent 70%);
             pointer-events: none;
         }
 
-        .carousel-slides {
+        .svc-carousel-wrap {
             position: relative;
             width: 100%;
-            height: 100%;
+            max-width: 1100px;
+            height: 380px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(212,168,83,0.15);
         }
-
+        .carousel-slides { position: relative; width: 100%; height: 100%; }
         .carousel-slide {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             opacity: 0;
             transform: translateX(20px);
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: opacity 0.4s ease, transform 0.4s ease;
         }
-
-        .carousel-slide.active {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        /* Slide animations */
-        .carousel-slide.slide-in-right {
-            animation: slideInRight 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-        }
-
-        .carousel-slide.slide-in-left {
-            animation: slideInLeft 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-        }
+        .carousel-slide.active { opacity: 1; transform: translateX(0); }
+        .carousel-slide.slide-in-right { animation: slideInRight 0.4s ease forwards; }
+        .carousel-slide.slide-in-left  { animation: slideInLeft  0.4s ease forwards; }
 
         @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+            from { opacity: 0; transform: translateX(30px); }
+            to   { opacity: 1; transform: translateX(0); }
         }
-
         @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+            from { opacity: 0; transform: translateX(-30px); }
+            to   { opacity: 1; transform: translateX(0); }
         }
 
-        .carousel-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        .carousel-image { width: 100%; height: 100%; object-fit: cover; display: block; }
 
         .carousel-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.15);
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            padding: 15px;
+            background: rgba(212,168,83,0.1);
+            border: 1px solid rgba(212,168,83,0.3);
+            backdrop-filter: blur(12px);
+            color: #fff;
+            font-size: 1rem;
+            padding: 0;
             cursor: pointer;
             border-radius: 50%;
-            width: 50px;
-            height: 50px;
+            width: 44px; height: 44px;
             display: flex;
             align-items: center;
             justify-content: center;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: background 0.25s, border-color 0.25s;
             z-index: 10;
         }
-
         .carousel-btn:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: translateY(-50%) scale(1.1);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            background: rgba(212,168,83,0.25);
+            border-color: rgba(212,168,83,0.6);
         }
+        .carousel-prev { left: 18px; }
+        .carousel-next { right: 18px; }
 
-        .carousel-btn:active {
-            transform: translateY(-50%) scale(0.95);
-        }
-
-        .carousel-prev {
-            left: 20px;
-        }
-
-        .carousel-next {
-            right: 20px;
-        }
-
-        /* What We Do Section */
-        .what-we-do-section {
-            padding: 80px 0 30px;
-            background: transparent;
+        /* ── Section intro ── */
+        .svc-intro {
+            padding: 80px 0 20px;
             text-align: center;
+            background: var(--bg-primary);
         }
-
-        .what-we-do-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .section-subtitle {
-            font-size: 14px;
-            color: #d4a853;
+        .svc-intro-eyebrow {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--gold-primary);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 4px;
             margin-bottom: 18px;
+        }
+        .svc-intro-title {
+            font-size: clamp(1.8rem, 4vw, 3rem);
             font-weight: 700;
+            color: var(--text-primary);
+            font-family: Georgia, 'Times New Roman', serif;
+            line-height: 1.2;
+            margin: 0;
         }
 
-        .section-main-title {
-            font-size: 2.8rem;
-            font-weight: 700;
-            color: #ffffff;
-            font-family: 'Times New Roman', serif;
-            line-height: 1.15;
+        /* ── Services grid ── */
+        .svc-grid-section {
+            background: var(--bg-primary);
+            padding: 40px 0 100px;
         }
-
-        .services-section {
-            padding: 30px 0 80px;
-            background: transparent;
-        }
-
-        .services-container {
-            max-width: 1200px;
+        .svc-grid-container {
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 32px;
         }
-
-        .services-grid {
+        .svc-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
+            gap: 24px;
         }
-
-        .service-card {
-            background: linear-gradient(180deg, #141b2d 0%, #1a2340 100%);
-            border: 1px solid rgba(212, 168, 83, 0.18);
-            border-radius: 18px;
-            padding: 28px;
-            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.22);
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        .svc-card {
+            background: linear-gradient(145deg, rgba(17,23,40,0.82), rgba(22,30,55,0.62));
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(212,168,83,0.14);
+            border-radius: 20px;
+            padding: 32px 28px;
+            box-shadow: 0 16px 48px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.05);
             cursor: pointer;
-        }
-
-        .service-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(212, 168, 83, 0.45);
-            box-shadow: 0 18px 36px rgba(212, 168, 83, 0.12);
-        }
-
-        .service-card-title {
-            font-size: 1.4rem;
-            color: #d4a853;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin: 0;
-        }
-
-        .service-card .service-description {
-            font-size: 1rem;
-            color: #94a3b8;
-            text-align: left;
-            margin: 0;
-        }
-
-        .service-line {
-            width: 4px;
-            height: 40px;
-            background-color: #d4a853;
-            flex-shrink: 0;
-        }
-
-        .service-content {
-            flex: 1;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
             display: flex;
-            flex-direction: column;
-            gap: 8px;
+            align-items: flex-start;
+            gap: 20px;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
         }
+        .svc-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(212,168,83,0.6), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .svc-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212,168,83,0.32);
+            box-shadow: 0 28px 70px rgba(0,0,0,0.5), 0 0 40px rgba(212,168,83,0.07);
+        }
+        .svc-card:hover::before { opacity: 1; }
 
-        .service-name {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #ffffff;
+        .svc-card-accent {
+            width: 4px;
+            min-height: 48px;
+            border-radius: 2px;
+            background: linear-gradient(180deg, var(--gold-primary), var(--gold-dark));
+            flex-shrink: 0;
+            margin-top: 4px;
+        }
+        .svc-card-body { flex: 1; }
+        .svc-card-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--gold-primary);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            margin: 0 0 10px;
+        }
+        .svc-card-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
             margin: 0;
         }
+        .svc-card-arrow {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-top: 4px;
+            flex-shrink: 0;
+            transition: color 0.25s, transform 0.25s;
+        }
+        .svc-card:hover .svc-card-arrow {
+            color: var(--gold-primary);
+            transform: translateX(4px);
+        }
 
-        .create-order-btn {
-            display: inline-flex;
-            align-items: center;
+        .svc-cta {
+            display: flex;
             justify-content: center;
-            min-width: 240px;
+            margin-top: 56px;
         }
 
-        /* Services Responsive */
         @media (max-width: 768px) {
-            .section-main-title {
-                font-size: 2rem;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            .service-card {
-                padding: 24px 18px;
-            }
-
-            .hero-section {
-                height: 250px;
-            }
-
-            .what-we-do-section {
-                padding: 60px 0;
-            }
+            .svc-carousel-wrap { height: 240px; border-radius: 14px; }
+            .svc-intro { padding: 60px 0 16px; }
+            .svc-intro-title { font-size: 1.8rem; }
+            .svc-grid { grid-template-columns: 1fr; gap: 16px; }
+            .svc-grid-section { padding: 30px 0 70px; }
+            .svc-grid-container { padding: 0 16px; }
+            .svc-card { padding: 24px 20px; }
         }
-
         @media (max-width: 480px) {
-            .section-main-title {
-                font-size: 1.8rem;
-            }
-
-            .services-section {
-                padding: 40px 0;
-            }
-
-            .service-card {
-                padding: 18px 14px;
-            }
-
-            .service-card-title {
-                font-size: 1.1rem;
-            }
-
-            .service-description {
-                font-size: 0.85rem;
-            }
-
-            .hero-section {
-                height: 200px;
-            }
-
-            .carousel-container {
-                max-width: 100%;
-                margin: 0 10px;
-            }
-
-            .what-we-do-section {
-                padding: 40px 0;
-            }
+            .svc-carousel-wrap { height: 200px; margin: 0 12px; }
+            .svc-intro-title { font-size: 1.5rem; }
         }
     </style>
 </head>
@@ -386,18 +228,14 @@
                 <img src="images/logo/logo.png" alt="Lotus Foto Logo" class="logo-image" decoding="async">
             </div>
             <div class="header-right-section">
-                <!-- Mobile Menu Toggle -->
                 <button class="mobile-menu-toggle" id="mobileMenuToggle">
                     <i class="fas fa-bars"></i>
                 </button>
-
-                <!-- Navigation Menu -->
                 <nav class="navigation" id="navigation">
                     <ul class="nav-menu">
-                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html">Home</a></li>
                         <li class="dropdown">
-                            <a href="services.html" class="dropdown-toggle" data-bs-toggle="dropdown"
-                                aria-expanded="false">Services</a>
+                            <a href="services.html" class="dropdown-toggle nav-active" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="photo-editing.html">Photo Editing</a></li>
                                 <li><a class="dropdown-item" href="day-to-dusk.html">Day to Dusk</a></li>
@@ -410,118 +248,109 @@
                         <li><a href="contact.html">Contact us</a></li>
                     </ul>
                 </nav>
-
-                <!-- Buy Now Button -->
                 <a href="order.html" class="buy-now-btn">Order Now</a>
             </div>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <!-- Hero Section with Carousel -->
-        <section class="hero-section">
-            <div class="carousel-container">
-                <div class="carousel-slides">
-                    <div class="carousel-slide active">
-                        <img src="images/Sample Lotus Foto/HDR Blending/1/DSC00287.jpg" alt="Modern Interior"
-                            class="carousel-image">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="images/Sample Lotus Foto/HDR Blending/1/ET6A5121.jpg" alt="Garden View"
-                            class="carousel-image">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="images/Sample Lotus Foto/HDR Blending/1/ET6A5129.jpg" alt="Modern Kitchen"
-                            class="carousel-image">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="images/Sample Lotus Foto/HDR Blending/1/ET6A5164.jpg" alt="Living Room"
-                            class="carousel-image">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="images/Sample Lotus Foto/HDR Blending/1/ET6A5192.jpg" alt="Bedroom"
-                            class="carousel-image">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="images/Sample Lotus Foto/HDR Blending/1/ET6A5197.jpg" alt="Bathroom"
-                            class="carousel-image">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="images/Sample Lotus Foto/HDR Blending/1/ET6A5217.jpg" alt="Dining Room"
-                            class="carousel-image">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="images/Sample Lotus Foto/HDR Blending/1/ET6A5230.jpg" alt="Office Space"
-                            class="carousel-image">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="images/Sample Lotus Foto/HDR Blending/1/ET6A5252.jpg" alt="Outdoor Space"
-                            class="carousel-image">
-                    </div>
+    <!-- Hero Carousel -->
+    <section class="svc-hero">
+        <div class="svc-carousel-wrap">
+            <div class="carousel-slides">
+                <div class="carousel-slide active">
+                    <img src="images/Sample Lotus Foto/HDR Blending/1/DSC00287.jpg" alt="Modern Interior" class="carousel-image">
                 </div>
-                <button class="carousel-btn carousel-prev">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="carousel-btn carousel-next">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-        </section>
-
-        <!-- What We Do Section -->
-        <section class="what-we-do-section">
-            <div class="what-we-do-container">
-                <h2 class="section-subtitle">WHAT WE DO</h2>
-                <p class="section-main-title">Let's discover our editing services</p>
-            </div>
-        </section>
-
-        <!-- Services Grid -->
-        <section class="services-section">
-            <div class="services-container">
-                <div class="services-grid">
-                    <!-- Photo Editing -->
-                    <div class="service-card" id="photo-editing">
-                        <h3 class="service-card-title">PHOTO EDITING</h3>
-                        <p class="service-description">Professional color correction, exposure adjustment, and
-                            enhancement with 14-step editing process.</p>
-                    </div>
-
-                    <!-- Day to Dusk -->
-                    <div class="service-card" id="day-to-dusk">
-                        <h3 class="service-card-title">VIRTUAL TWILIGHT</h3>
-                        <p class="service-description">Transform day photos into stunning twilight scenes with realistic
-                            lighting effects.</p>
-                    </div>
-
-                    <!-- Item Removal -->
-                    <div class="service-card" id="item-removal">
-                        <h3 class="service-card-title">ITEM REMOVAL</h3>
-                        <p class="service-description">Remove unwanted objects, reflections, and distractions from your
-                            property photos.</p>
-                    </div>
-
-
-                    <!-- Virtual Staging -->
-                    <div class="service-card" id="virtual-staging">
-                        <h3 class="service-card-title">VIRTUAL STAGING</h3>
-                        <p class="service-description">Furnish empty rooms with beautiful virtual furniture and decor.
-                        </p>
-                    </div>
-
-                    <!-- Virtual Renovation -->
-                    <div class="service-card" id="virtual-renovation">
-                        <h3 class="service-card-title">VIRTUAL RENOVATION</h3>
-                        <p class="service-description">Show potential renovations and improvements before they happen.
-                        </p>
-                    </div>
+                <div class="carousel-slide">
+                    <img src="images/Sample Lotus Foto/HDR Blending/1/ET6A5121.jpg" alt="Garden View" class="carousel-image">
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/Sample Lotus Foto/HDR Blending/1/ET6A5129.jpg" alt="Modern Kitchen" class="carousel-image">
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/Sample Lotus Foto/HDR Blending/1/ET6A5164.jpg" alt="Living Room" class="carousel-image">
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/Sample Lotus Foto/HDR Blending/1/ET6A5192.jpg" alt="Bedroom" class="carousel-image">
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/Sample Lotus Foto/HDR Blending/1/ET6A5197.jpg" alt="Bathroom" class="carousel-image">
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/Sample Lotus Foto/HDR Blending/1/ET6A5217.jpg" alt="Dining Room" class="carousel-image">
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/Sample Lotus Foto/HDR Blending/1/ET6A5230.jpg" alt="Office Space" class="carousel-image">
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/Sample Lotus Foto/HDR Blending/1/ET6A5252.jpg" alt="Outdoor Space" class="carousel-image">
                 </div>
             </div>
-            <div class="pe-cta"><a href="order.html" class="cta-button">Create Order</a></div>
-        </section>
+            <button class="carousel-btn carousel-prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="carousel-btn carousel-next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
 
-    </main>
+    <!-- Section Intro -->
+    <section class="svc-intro">
+        <p class="svc-intro-eyebrow">WHAT WE DO</p>
+        <h2 class="svc-intro-title">Let's discover our editing services</h2>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="svc-grid-section">
+        <div class="svc-grid-container">
+            <div class="svc-grid">
+                <a href="photo-editing.html" class="svc-card">
+                    <div class="svc-card-accent"></div>
+                    <div class="svc-card-body">
+                        <h3 class="svc-card-title">PHOTO EDITING</h3>
+                        <p class="svc-card-desc">Professional color correction, exposure adjustment, and enhancement with 14-step editing process.</p>
+                    </div>
+                    <i class="fas fa-arrow-right svc-card-arrow"></i>
+                </a>
+
+                <a href="day-to-dusk.html" class="svc-card">
+                    <div class="svc-card-accent"></div>
+                    <div class="svc-card-body">
+                        <h3 class="svc-card-title">VIRTUAL TWILIGHT</h3>
+                        <p class="svc-card-desc">Transform day photos into stunning twilight scenes with realistic lighting effects.</p>
+                    </div>
+                    <i class="fas fa-arrow-right svc-card-arrow"></i>
+                </a>
+
+                <a href="item-removal.html" class="svc-card">
+                    <div class="svc-card-accent"></div>
+                    <div class="svc-card-body">
+                        <h3 class="svc-card-title">ITEM REMOVAL</h3>
+                        <p class="svc-card-desc">Remove unwanted objects, reflections, and distractions from your property photos.</p>
+                    </div>
+                    <i class="fas fa-arrow-right svc-card-arrow"></i>
+                </a>
+
+                <a href="virtual-staging.html" class="svc-card">
+                    <div class="svc-card-accent"></div>
+                    <div class="svc-card-body">
+                        <h3 class="svc-card-title">VIRTUAL STAGING</h3>
+                        <p class="svc-card-desc">Furnish empty rooms with beautiful virtual furniture and decor.</p>
+                    </div>
+                    <i class="fas fa-arrow-right svc-card-arrow"></i>
+                </a>
+
+                <a href="virtual-renovation.html" class="svc-card">
+                    <div class="svc-card-accent"></div>
+                    <div class="svc-card-body">
+                        <h3 class="svc-card-title">VIRTUAL RENOVATION</h3>
+                        <p class="svc-card-desc">Show potential renovations and improvements before they happen.</p>
+                    </div>
+                    <i class="fas fa-arrow-right svc-card-arrow"></i>
+                </a>
+            </div>
+
+            <div class="svc-cta">
+                <a href="order.html" class="cta-button">Create Order</a>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer id="footer" class="footer">
@@ -530,7 +359,7 @@
                 <div class="footer-column footer-links">
                     <h3 class="footer-title">USEFUL LINKS</h3>
                     <ul class="footer-list">
-                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html">Home</a></li>
                         <li><a href="index.html#blog">Blog</a></li>
                         <li><a href="index.html#faq">FAQ</a></li>
                         <li><a href="portfolio.html">Portfolio</a></li>
@@ -558,12 +387,12 @@
                     <h3 class="footer-title">SOCIAL</h3>
                     <div class="social-media-section">
                         <div class="social-icons">
-                            <a href="https://www.facebook.com/profile.php?id=61579599152434&locale=vi_VN"
-                                target="_blank" aria-label="Facebook" class="social-icon facebook"><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a href="https://www.instagram.com/lotus_foto_editing/" target="_blank"
-                                aria-label="Instagram" class="social-icon instagram"><i
-                                    class="fab fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/profile.php?id=61579599152434&locale=vi_VN" target="_blank" aria-label="Facebook" class="social-icon facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/lotus_foto_editing/" target="_blank" aria-label="Instagram" class="social-icon instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -572,9 +401,8 @@
     </footer>
 
     <script src="js/main.js"></script>
-
     <script>
-        // Carousel functionality
+        // Custom carousel (non-Bootstrap)
         class Carousel {
             constructor(container) {
                 this.container = container;
@@ -584,242 +412,43 @@
                 this.currentSlide = 0;
                 this.autoPlayInterval = null;
                 this.isTransitioning = false;
-
                 this.init();
             }
-
             init() {
-                if (this.slides.length === 0) return;
-
-                // Show first slide
+                if (!this.slides.length) return;
                 this.showSlide(0);
-
-                // Add event listeners
-                if (this.prevBtn) {
-                    this.prevBtn.addEventListener('click', () => this.prevSlide());
-                }
-
-                if (this.nextBtn) {
-                    this.nextBtn.addEventListener('click', () => this.nextSlide());
-                }
-
-                // Auto-play carousel
+                this.prevBtn?.addEventListener('click', () => this.prevSlide());
+                this.nextBtn?.addEventListener('click', () => this.nextSlide());
                 this.startAutoPlay();
-
-                // Pause on hover
                 this.container.addEventListener('mouseenter', () => this.stopAutoPlay());
                 this.container.addEventListener('mouseleave', () => this.startAutoPlay());
             }
-
             showSlide(index, direction = 'next') {
                 if (this.isTransitioning) return;
                 this.isTransitioning = true;
-
-                // Hide all slides with direction-aware animation
-                this.slides.forEach(slide => {
-                    slide.classList.remove('active', 'slide-in-left', 'slide-in-right', 'slide-out-left', 'slide-out-right');
-                });
-
-                // Show current slide with smooth transition
+                this.slides.forEach(s => s.classList.remove('active','slide-in-left','slide-in-right'));
                 if (this.slides[index]) {
-                    const slide = this.slides[index];
-                    slide.classList.add('active');
-
-                    // Add direction-based animation classes
-                    if (direction === 'next') {
-                        slide.classList.add('slide-in-right');
-                    } else {
-                        slide.classList.add('slide-in-left');
-                    }
+                    this.slides[index].classList.add('active', direction === 'next' ? 'slide-in-right' : 'slide-in-left');
                 }
-
                 this.currentSlide = index;
-
-                // Reset transition flag after animation
-                setTimeout(() => {
-                    this.isTransitioning = false;
-                }, 300);
+                setTimeout(() => { this.isTransitioning = false; }, 400);
             }
-
-            nextSlide() {
-                const nextIndex = (this.currentSlide + 1) % this.slides.length;
-                this.showSlide(nextIndex, 'next');
-            }
-
-            prevSlide() {
-                const prevIndex = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
-                this.showSlide(prevIndex, 'prev');
-            }
-
+            nextSlide() { this.showSlide((this.currentSlide + 1) % this.slides.length, 'next'); }
+            prevSlide() { this.showSlide((this.currentSlide - 1 + this.slides.length) % this.slides.length, 'prev'); }
             startAutoPlay() {
                 this.stopAutoPlay();
-                this.autoPlayInterval = setInterval(() => {
-                    this.nextSlide();
-                }, 4000); // Change slide every 4 seconds
+                this.autoPlayInterval = setInterval(() => this.nextSlide(), 4000);
             }
-
             stopAutoPlay() {
-                if (this.autoPlayInterval) {
-                    clearInterval(this.autoPlayInterval);
-                    this.autoPlayInterval = null;
-                }
+                clearInterval(this.autoPlayInterval);
+                this.autoPlayInterval = null;
             }
         }
 
-        // Service item interactions
-        function initServiceItems() {
-            const serviceItems = document.querySelectorAll('.service-card');
-
-            serviceItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    // Get service name and redirect to appropriate page
-                    const serviceName = item.querySelector('.service-card-title').textContent.trim();
-                    let redirectUrl = '';
-
-                    switch (serviceName) {
-                        case 'PHOTO EDITING':
-                            redirectUrl = 'photo-editing.html';
-                            break;
-                        case 'VIRTUAL TWILIGHT':
-                            redirectUrl = 'day-to-dusk.html';
-                            break;
-                        case 'ITEM REMOVAL':
-                            redirectUrl = 'item-removal.html';
-                            break;
-                        case 'VIRTUAL STAGING':
-                            redirectUrl = 'virtual-staging.html';
-                            break;
-                        case 'VIRTUAL RENOVATION':
-                            redirectUrl = 'virtual-renovation.html';
-                            break;
-                        default:
-                            return;
-                    }
-
-                    // Redirect to service page
-                    if (redirectUrl) {
-                        window.location.href = redirectUrl;
-                    }
-                });
-            });
-        }
-
-        // Smooth scrolling for navigation links
-        function initSmoothScrolling() {
-            const navLinks = document.querySelectorAll('a[href^="#"]');
-
-            navLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const targetId = link.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-
-                    if (targetElement) {
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-        }
-
-        // Lazy loading for images
-        function initLazyLoading() {
-            const images = document.querySelectorAll('img[data-src]');
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src;
-                        img.classList.remove('lazy');
-                        observer.unobserve(img);
-                    }
-                });
-            });
-
-            images.forEach(img => imageObserver.observe(img));
-        }
-
-        // Add loading animation
-        function initLoadingAnimation() {
-            document.body.classList.add('loaded');
-        }
-
-        // Debounce function for performance
-        function debounce(func, wait) {
-            let timeout;
-            return function executedFunction(...args) {
-                const later = () => {
-                    clearTimeout(timeout);
-                    func(...args);
-                };
-                clearTimeout(timeout);
-                timeout = setTimeout(later, wait);
-            };
-        }
-
-        // Handle window resize with debouncing
-        const debouncedResize = debounce(() => {
-            // Reinitialize carousel if needed
-            const carouselContainer = document.querySelector('.carousel-container');
-            if (carouselContainer && carouselContainer.carousel) {
-                carouselContainer.carousel.startAutoPlay();
-            }
-        }, 250);
-
-        // Initialize all functionality when DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
-
-            // Initialize carousel
-            const carouselContainer = document.querySelector('.carousel-container');
-            if (carouselContainer) {
-                new Carousel(carouselContainer);
-            }
-
-            // Initialize service items
-            initServiceItems();
-
-            // Initialize smooth scrolling
-            initSmoothScrolling();
-
-            // Initialize lazy loading
-            initLazyLoading();
-
-            // Add loading animation
-            initLoadingAnimation();
+            const wrap = document.querySelector('.svc-carousel-wrap');
+            if (wrap) new Carousel(wrap);
         });
-
-        // Handle window resize
-        window.addEventListener('resize', debouncedResize);
-
-        // Add some utility functions
-        const utils = {
-            // Debounce function for performance
-            debounce: (func, wait) => {
-                let timeout;
-                return function executedFunction(...args) {
-                    const later = () => {
-                        clearTimeout(timeout);
-                        func(...args);
-                    };
-                    clearTimeout(timeout);
-                    timeout = setTimeout(later, wait);
-                };
-            },
-
-            // Check if element is in viewport
-            isInViewport: (element) => {
-                const rect = element.getBoundingClientRect();
-                return (
-                    rect.top >= 0 &&
-                    rect.left >= 0 &&
-                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-                );
-            }
-        };
-
     </script>
 </body>
 
